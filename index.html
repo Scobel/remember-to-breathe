@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remember to Breathe</title>
+    <style>
+        #video-container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+        video, #thumbnail {
+            width: 100%;
+            height: auto;
+        }
+        #thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        video {
+            z-index: 0;
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <img id="thumbnail" src="https://akrd.net/LDjb4mMlu6gLADX6rpAtNiT2V9rmZvojkrZTNjoZN50" alt="Remember to Breathe">
+        <video id="remembertobreathe" preload="metadata" playsinline>
+            <source src="https://akrd.net/LX00UXFGun61wAvNWEVoAozyNMA63CYM_K3DD9S6_oM" type="video/mp4">
+        </video>
+        <div id="overlay"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById('remembertobreathe');
+            var thumbnail = document.getElementById('thumbnail');
+            var overlay = document.getElementById('overlay');
+
+            function playVideo() {
+                thumbnail.style.display = 'none';
+                video.style.display = 'block';
+                video.play();
+            }
+
+            function pauseVideo() {
+                video.pause();
+            }
+
+            overlay.addEventListener('mousedown', function(event) {
+                event.preventDefault(); // Prevents default behavior
+                playVideo();
+            });
+
+            overlay.addEventListener('mouseup', function(event) {
+                event.preventDefault(); // Prevents default behavior
+                pauseVideo();
+            });
+
+            overlay.addEventListener('touchstart', function(event) {
+                event.preventDefault(); // Prevents default behavior
+                playVideo();
+            });
+
+            overlay.addEventListener('touchend', function(event) {
+                event.preventDefault(); // Prevents default behavior
+                pauseVideo();
+            });
+        });
+    </script>
+</body>
+</html>
